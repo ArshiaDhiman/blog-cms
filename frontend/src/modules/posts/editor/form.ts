@@ -85,6 +85,14 @@ export function inputFromForm(form: EditorForm): PostInput {
   };
 }
 
+/**
+ * The form once a save lands. Typing carries on while the request is in flight, so
+ * `current` (what's on screen now) wins over `sent` (what was saved).
+ */
+export function formAfterSave(current: EditorForm, sent: EditorForm, savedSlug: string): EditorForm {
+  return current.slug === sent.slug ? { ...current, slug: savedSlug } : current;
+}
+
 /** Client-side checks run before saving; the API repeats them. */
 export function validateForm(form: EditorForm): FormErrors {
   const errors: FormErrors = {};
