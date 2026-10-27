@@ -81,7 +81,8 @@ export function Sidebar({ collapsed }: { collapsed: boolean }) {
               <div className="text-[10px] text-muted">Administrator</div>
             </div>
             <Menu
-              align="left"
+              align="right"
+              placement="top"
               trigger={(props) => (
                 <button
                   type="button"
